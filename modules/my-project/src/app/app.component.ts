@@ -31,10 +31,12 @@ export class AppComponent {
 	labels: any;
 
 	constructor() {
+		let LiferayWrapper = window.Liferay;
+
 		this.labels = {
-			portletNamespace: window.Liferay.Language.get('portlet-namespace'),
-        	contextPath: window.Liferay.Language.get('context-path'),
-			portletElementId: window.Liferay.Language.get('portlet-element-id')
+			portletNamespace: LiferayWrapper.Language.get('portlet-namespace'),
+        	contextPath: LiferayWrapper.Language.get('context-path'),
+			portletElementId: LiferayWrapper.Language.get('portlet-element-id')
 		}
 	}
 
