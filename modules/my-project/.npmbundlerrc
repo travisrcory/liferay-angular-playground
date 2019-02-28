@@ -1,0 +1,17 @@
+{
+	"exclude": {
+		"*": [
+			"__tests__/**/*",
+			"test/**/*"
+		]
+	},
+	"create-jar": {
+		"output-dir": "dist",
+		"features": {
+			"js-extender": true,
+			"web-context": "/my-project",
+			"localization": "features/localization/Language"
+		}
+	},
+	"dump-report": true
+}
