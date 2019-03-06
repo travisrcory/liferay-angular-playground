@@ -8,6 +8,7 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { CardComponent } from './components/card/card.component'
 
 @NgModule({
 	imports: [
@@ -17,7 +18,7 @@ import { AppComponent } from './app.component';
 		MatCardModule,
 		MatCheckboxModule
 	],
-	declarations: [AppComponent],
+	declarations: [AppComponent, CardComponent],
 	entryComponents: [AppComponent],
 	bootstrap: [], // Don't bootstrap any component statically (see ngDoBootstrap() below)
 	providers: [],
