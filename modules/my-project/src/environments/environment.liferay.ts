@@ -1,3 +1,6 @@
 export const environment = {
-  path: '/o/my-project/app/app.component.html'
+  path: {
+    app: '/o/my-project',
+    components: '/o/my-project'
+  }
 };
