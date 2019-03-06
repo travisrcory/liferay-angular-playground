@@ -1,3 +1,6 @@
 export const environment = {
-  path: '../../assets/app/app.component.html'
+  path: {
+    app: '../../assets',
+    components: '../../../../assets'
+  }
 };

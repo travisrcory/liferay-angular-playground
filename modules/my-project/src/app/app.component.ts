@@ -14,9 +14,9 @@ const Liferay = {
 	}
 }
 
-const templateUrl = environment.path;
-
 window.Liferay = window.Liferay || Liferay
+
+const templateUrl = `${environment.path.app}/app/app.component.html`;
 
 @Component({
 	templateUrl
@@ -29,13 +29,15 @@ export class AppComponent {
 		portletNamespace: 'my-app'
 	};
 	labels: any;
+	title: string;
 
 	constructor() {
 		let LiferayWrapper = window.Liferay;
 
+		this.title = 'Welcome!'
 		this.labels = {
 			portletNamespace: LiferayWrapper.Language.get('portlet-namespace'),
-        	contextPath: LiferayWrapper.Language.get('context-path'),
+			contextPath: LiferayWrapper.Language.get('context-path'),
 			portletElementId: LiferayWrapper.Language.get('portlet-element-id')
 		}
 	}

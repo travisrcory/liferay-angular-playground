@@ -23,6 +23,7 @@
 		"liferay-npm-bundler": "2.6.2",
 		"node-sass": "4.11.0",
 		"protractor": "5.4.2",
+		"rimraf": "2.6.3",
 		"ts-loader": "5.3.3",
 		"ts-node": "8.0.2",
 		"tslint": "5.13.0",
@@ -51,7 +52,8 @@
 		"zone.js": "0.8.29"
 	},
 	"scripts": {
-		"build": "tsc && npm run compile-sass && npm run copy-assets && liferay-npm-bundler",
+		"build": "npm run clean && tsc && npm run compile-sass && npm run copy-assets && liferay-npm-bundler",
+		"clean": "rimraf build dist",
 		"compile-sass": "node-sass --output-style compressed assets/css/styles.scss assets/css/styles.css",
 		"copy-assets": "lnbs-copy-assets",
 		"deploy": "npm run build && lnbs-deploy",
