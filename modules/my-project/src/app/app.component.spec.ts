@@ -1,12 +1,18 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-import { MatCheckboxModule } from '@angular/material';
+import {
+	MatButtonModule,
+	MatCardModule,
+	MatCheckboxModule
+} from '@angular/material';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        MatButtonModule,
+        MatCardModule,
         MatCheckboxModule
       ],
       declarations: [

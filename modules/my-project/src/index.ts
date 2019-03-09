@@ -1,5 +1,6 @@
 import './polyfills';
 
+import { enableProdMode } from '@angular/core';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -9,6 +10,35 @@ import { DynamicLoader } from './app/dynamic.loader';
 
 import LiferayParams from './types/LiferayParams'
 
+import { environment } from './environments/environment.liferay';
+
+
+const renderComponent = (params: LiferayParams) => {
+	platformBrowserDynamic()
+	.bootstrapModule(AppModule)
+	.then((injector: any) => {
+		// Load the bootstrap component dinamically so that we can attach it
+		// to the portlet's DOM, which is different for each portlet
+		// instance and, thus, cannot be determined until the page is
+		// rendered (during runtime).
+		const dynamicLoader = new DynamicLoader(injector);
+
+		dynamicLoader.loadComponent(AppComponent, params);
+	});
+
+}
+
+if (environment.serve) {
+	const params: LiferayParams = {
+		configuration: {},
+		contextPath: 'my-app',
+		portletElementId: 'my-app',
+		portletNamespace: 'my-app'
+	}
+
+	renderComponent(params);
+}
+
 /**
  * This is the actual method that initializes the portlet. It is invoked by the
  * "bootstrap" module.
@@ -16,18 +46,4 @@ import LiferayParams from './types/LiferayParams'
  * @param  {LiferayParams} params an object with values of interest to the
  * 									portlet
  */
-export default function(params: LiferayParams) {
-
-	platformBrowserDynamic()
-		.bootstrapModule(AppModule)
-		.then((injector: any) => {
-			// Load the bootstrap component dinamically so that we can attach it
-			// to the portlet's DOM, which is different for each portlet
-			// instance and, thus, cannot be determined until the page is
-			// rendered (during runtime).
-			const dynamicLoader = new DynamicLoader(injector);
-
-			dynamicLoader.loadComponent(AppComponent, params);
-		});
-
-}
+export default renderComponent;

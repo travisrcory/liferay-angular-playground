@@ -19,7 +19,8 @@ import { AppComponent } from './app.component';
 	],
 	declarations: [AppComponent],
 	entryComponents: [AppComponent],
-	bootstrap: [], // Don't bootstrap any component statically (see ngDoBootstrap() below)
+	// ADDING BOOTSTRAP HERE CAUSES COMPONENT TO RENDER PROPERLY WITH NG SERVE
+	bootstrap: [AppComponent], // Don't bootstrap any component statically (see ngDoBootstrap() below)
 	providers: [],
 })
 export class AppModule {

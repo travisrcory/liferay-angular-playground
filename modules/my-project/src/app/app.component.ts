@@ -19,6 +19,7 @@ const templateUrl = environment.path;
 window.Liferay = window.Liferay || Liferay
 
 @Component({
+	selector: 'app-root',
 	templateUrl
 })
 export class AppComponent {
